@@ -4,6 +4,6 @@ COPY pom.xml .
 COPY src ./src
 RUN mvn install -DskipTests
 
-FROM Openjdk:17
+FROM openjdk:17
 COPY --from=builder build/target/*.jar app.jar
 ENTRYPOINT [ "java", "-jar", "app.jar" ]
